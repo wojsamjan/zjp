@@ -74,7 +74,10 @@ wtf.py
 |19 - 10  |	  B   |	Medium          |
 |9 - 0    |	  C   |	Extremely low   |
 
-
+```
+$ radon mi -s wtf.py 
+wtf.py - A (59.70)
+```
 
 ## Raw metrics:
 These include:  
