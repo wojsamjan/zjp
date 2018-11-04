@@ -1,6 +1,7 @@
 ##### Main tools used:
 
-Pylint - linter, static code analyzer with extra 'symilar' command - similarities checker
+Pylint - linter, static code analyzer with extra 'symilar' command - similarities checker.
+
 [Radon](https://pypi.org/project/radon/) - Radon is a Python tool that computes various metrics from the source code.
 
 ## Code:
