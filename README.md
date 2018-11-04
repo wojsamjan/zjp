@@ -1,16 +1,9 @@
-# Code metrics in Python
-
-Cool [blogpost](https://www.fullstackpython.com/code-metrics.html) about code metric tools for Python
-
-[The Little Book of Python Anti-Patterns](https://docs.quantifiedcode.com/python-anti-patterns/) - exactly what it says on the tin, another good read [here](https://github.com/maxlinksuper/clean-code-python)
-
 ##### Main tools used:
 
 Pylint - linter, static code analyzer with extra 'symilar' command - similarities checker
+[Radon](https://pypi.org/project/radon/) - Radon is a Python tool that computes various metrics from the source code.
 
-[Radon](https://radon.readthedocs.io/en/latest/index.html) - tool for obtaining raw metrics on line counts, Cyclomatic Complexity, Halstead metrics and maintainability metrics.
-
-## Our patient:
+## Code:
 ```python
 def wtf(word):
     try:
@@ -23,14 +16,6 @@ def wtf(word):
             print("Coś nie tak ze słowem")
         else:
             print("Nie ma słowa")
-```
-
-
-## Command used to keep things DRY:
-
-```
-$ symilar wtf.py 
-TOTAL lines=11 duplicates=0 percent=0.00
 ```
 
 ## Cyclomatic Complexity:
@@ -77,61 +62,4 @@ wtf.py
 ```
 $ radon mi -s wtf.py 
 wtf.py - A (59.70)
-```
-
-## Raw metrics:
-These include:  
-+ LOC: the total number of lines of code
-+ LLOC: the number of logical lines of code
-+ SLOC: the number of source lines of code - not necessarily corresponding to the LLOC
-+ comments: the number of Python comment lines (i.e. only single-line comments #)
-+ multi: the number of lines representing multi-line strings
-+ blank: the number of blank lines (or whitespace-only ones)
-
-[More](https://en.wikipedia.org/wiki/Source_lines_of_code) info about what LLOC/SLOC are.
-
-```
-$ radon raw wtf.py 
-wtf.py
-    LOC: 11
-    LLOC: 11
-    SLOC: 11
-    Comments: 0
-    Single comments: 0
-    Multi: 0
-    Blank: 0
-    - Comment Stats
-        (C % L): 0%
-        (C % S): 0%
-        (C + M % L): 0%
-
-```
-
-## Halstead complexity metrics:
-[Wiki](https://en.wikipedia.org/wiki/Halstead_complexity_measures) article.
-Quick summary:
-+ h1 - the number of distinct operators
-+ h2 - the number of distinct operands
-+ N1 - the total number of operators
-+ N2 - the total number of operands
-+ vocabulary - h1 + h2
-+ length - N1+N2
-
-Check [documentation](https://radon.readthedocs.io/en/latest/intro.html#halstead-metrics) for other definitions.
-
-```
-$ radon hal wtf.py
-wtf.py:
-    h1: 7
-    h2: 22
-    N1: 14
-    N2: 27
-    vocabulary: 29
-    length: 41
-    calculated_length: 117.75898006442377
-    volume: 199.1772208002305
-    difficulty: 4.295454545454546
-    effort: 855.5566984373538
-    time: 47.5309276909641
-    bugs: 0.06639240693341016
 ```
