@@ -8,15 +8,17 @@ Pylint - linter, static code analyzer with extra 'symilar' command - similaritie
 ```python
 def wtf(word):
     try:
-        if (length(word) == 1 and length(word) != 0) or (length(word) > 1 and length(word) != 0) or (length(word) == 0 and length(word) != -1):
-            if(length(word) != -1):
-                if(length(word) not in [0]):
+        if (len(word) == 1 and len(word) != 0) or (len(word) > 1 and len(word) != 0) or (len(word) == 0 and len(word) != -1):
+            if(len(word) != -1):
+                if(len(word) not in [0]):
                     print("OK")
     except:
         if(word):
             print("Coś nie tak ze słowem")
         else:
             print("Nie ma słowa")
+
+    print("DoNe")
 ```
 
 ## Cyclomatic Complexity:
