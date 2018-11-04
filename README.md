@@ -11,11 +11,27 @@ Pylint - linter, static code analyzer with extra 'symilar' command - similaritie
 [Radon](https://radon.readthedocs.io/en/latest/index.html) - tool for obtaining raw metrics on line counts, Cyclomatic Complexity, Halstead metrics and maintainability metrics.
 
 ## Our patient:
+```python
+def wtf(word):
+    try:
+        if (length(word) == 1 and length(word) != 0) or (length(word) > 1 and length(word) != 0) or (length(word) == 0 and length(word) != -1):
+            if(length(word) != -1):
+                if(length(word) not in [0]):
+                    print("OK")
+    except:
+        if(word):
+            print("Coś nie tak ze słowem")
+        else:
+            print("Nie ma słowa")
+```
 
 
 ## Command used to keep things DRY:
 
-
+```
+$ symilar wtf.py 
+TOTAL lines=11 duplicates=0 percent=0.00
+```
 
 ## Cyclomatic Complexity:
 F stands for function (could also be M or C for method or class) and -s option shows value of complexity, complexity is ranked on a scale from A to F
@@ -44,7 +60,11 @@ assert |	+1 |	The assert statement internally roughly equals a conditional state
 Comprehension |	+1 |	A list/set/dict comprehension of generator expression is equivalent to a for loop.
 Boolean Operator |	+1 |	Every boolean operator (and, or) adds a decision point.
 
-
+```
+$ radon cc -s wtf.py
+wtf.py
+    F 1:0 wtf - C (11)
+```
 
 ## Maintainability Index score (defined [here](https://radon.readthedocs.io/en/latest/intro.html#maintainability-index)):
 
@@ -67,7 +87,22 @@ These include:
 
 [More](https://en.wikipedia.org/wiki/Source_lines_of_code) info about what LLOC/SLOC are.
 
+```
+$ radon raw wtf.py 
+wtf.py
+    LOC: 11
+    LLOC: 11
+    SLOC: 11
+    Comments: 0
+    Single comments: 0
+    Multi: 0
+    Blank: 0
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
 
+```
 
 ## Halstead complexity metrics:
 [Wiki](https://en.wikipedia.org/wiki/Halstead_complexity_measures) article.
