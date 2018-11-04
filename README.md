@@ -115,3 +115,20 @@ Quick summary:
 + length - N1+N2
 
 Check [documentation](https://radon.readthedocs.io/en/latest/intro.html#halstead-metrics) for other definitions.
+
+```
+$ radon hal wtf.py
+wtf.py:
+    h1: 7
+    h2: 22
+    N1: 14
+    N2: 27
+    vocabulary: 29
+    length: 41
+    calculated_length: 117.75898006442377
+    volume: 199.1772208002305
+    difficulty: 4.295454545454546
+    effort: 855.5566984373538
+    time: 47.5309276909641
+    bugs: 0.06639240693341016
+```
